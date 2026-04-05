@@ -23,43 +23,43 @@ api.interceptors.request.use(
 export const LedgerAPI = {
   // --- AUTHENTICATION ---
   login: async (credentials) => {
-    const response = await api.post('/auth/login', credentials);
+    const response = await api.post('/api/auth/login', credentials);
     return response.data;
   },
   register: async (userData) => {
-    const response = await api.post('/auth/register', userData);
+    const response = await api.post('/api/auth/register', userData);
     return response.data;
   },
 
   // --- DASHBOARD ---
   getDashboardSummary: async () => {
-    const response = await api.get('/dashboard/summary');
+    const response = await api.get('/api/dashboard/summary');
     return response.data;
   },
 
   // --- RECORDS (LEDGER) ---
   getRecords: async (params) => {
     // params will handle our pagination and filtering: ?page=1&limit=10&type=Expense
-    const response = await api.get('/records', { params });
+    const response = await api.get('/api/records', { params });
     return response.data;
   },
   addRecord: async (recordData) => {
-    const response = await api.post('/records', recordData);
+    const response = await api.post('/api/records', recordData);
     return response.data;
   },
 
   // --- USER MANAGEMENT (ADMIN ONLY) ---
   getUsers: async () => {
-    const response = await api.get('/users');
+    const response = await api.get('/api/users');
     return response.data;
   },
   updateUserRole: async (userId, updateData) => {
     // updateData will be an object like { role: "Analyst" } or { status: "Inactive" }
-    const response = await api.put(`/users/${userId}`, updateData);
+    const response = await api.put(`/api/users/${userId}`, updateData);
     return response.data;
   },
   deleteUser: async (userId) => {
-    const response = await api.delete(`/users/${userId}`);
+    const response = await api.delete(`/api/users/${userId}`);
     return response.data;
   }
 };

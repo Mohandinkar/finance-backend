@@ -18,8 +18,11 @@ const allowedOrigins = [
     'http://localhost:5174'
 ];
 
-app.use(cors());
-app.options('*', cors());
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
+
 
 app.use(express.json());
 

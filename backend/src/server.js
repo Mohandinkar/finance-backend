@@ -25,7 +25,7 @@ app.use('/api/records', recordRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
 
-app.get("/api/health", (req, res) => {
+app.get("/", (req, res) => {
 
     res.status(200).json({ status: "hello from server" });
 });

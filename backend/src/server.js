@@ -1,4 +1,3 @@
-
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -11,18 +10,18 @@ import userRoutes from './routes/userRoutes.js';
 import { errorHandler } from './middlewares/errorMiddleware.js';
 
 dotenv.config();
-
 connectDB();
 
+const app = express();
+
 const allowedOrigins = [
-    'http://localhost:5174',
-    'https://your-frontend-project.vercel.app'
+    'http://localhost:5174'
 ];
 
 app.use(cors({
     origin: function (origin, callback) {
-
         if (!origin) return callback(null, true);
+
         if (allowedOrigins.indexOf(origin) === -1) {
             return callback(new Error('CORS policy block'), false);
         }
@@ -33,25 +32,23 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-const app = express();
+app.options('*', cors());
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
-
+// 4. Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/records', recordRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
 
 app.get("/", (req, res) => {
-
     res.status(200).json({ status: "hello from server" });
 });
 
 app.use(errorHandler);
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-

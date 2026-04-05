@@ -14,8 +14,6 @@ dotenv.config();
 
 connectDB();
 
-import cors from 'cors';
-
 const allowedOrigins = [
     'http://localhost:5174',
     'https://your-frontend-project.vercel.app'

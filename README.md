@@ -72,6 +72,18 @@ The `GET /api/records` endpoint does not dump the entire database to the client.
 - **Query Parameters:** Supports `page` and `limit` (e.g., `?page=1&limit=50`).
 - **Performance:** Optimized using Mongoose `.skip()` and `.limit()` methods to reduce memory overhead.
 
+## 🔑 Demo Credentials
+
+To test the **Role-Based Access Control (RBAC)** features, please use the following pre-configured accounts:
+
+| Role | Email | Password | Permissions |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin@gmail.com` | `adminpassword123` | Full CRUD, User Management, Dashboard |
+| **Analyst** | `vinit@theledger.com` | `12345678` | Analyse,  Dashboard View |
+| **Viewer** | `viewer@theledger.com` | `123456` | Read-Only Dashboard |
+
+> **Note:** New registrations via the "Create Account" page are assigned the **Viewer** role by default for security.
+
 ## 🚀 Installation & Local Setup
 
 ### Prerequisites

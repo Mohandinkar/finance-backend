@@ -101,18 +101,7 @@ const Register = () => {
                         />
                     </div>
 
-                    <div className="space-y-1.5">
-                        <label className="text-sm font-bold text-slate-500">Role Provisioning</label>
-                        <select
-                            name="role"
-                            className="w-full bg-slate-50 text-slate-900 p-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all cursor-pointer"
-                            value={formData.role} onChange={handleInputChange}
-                        >
-                            <option value="Viewer">Read-Only Viewer</option>
-                            <option value="Analyst">Financial Analyst</option>
-                            <option value="Admin">Administrator</option>
-                        </select>
-                    </div>
+
 
                     <button
                         type="submit" disabled={loading}
